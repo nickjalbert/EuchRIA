@@ -3,3 +3,12 @@ Using the Adobe Flex Framework
 
 Author: Nick Jalbert (nickjalbert@gmail.com) 
 
+
+Project Makefile assumes the Flex compilers are in your path (mxmlc etc).  If
+Flex compilers are not in your path, update $(EUCHRIA_ROOT)/Makefile to reflect
+the path of your mxmlc compiler.
+
+Project utility scripts assume environment variable $EUCHRIA_ROOT is defined
+and points to the root directory of the project (e.g. export
+EUCHRIA_ROOT=/home/nick/Euchria).
+
