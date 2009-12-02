@@ -1,8 +1,5 @@
-Experimenting with Rich Internet Applications
-Using the Adobe Flex Framework
-
-Author: Nick Jalbert (nickjalbert@gmail.com) 
-
+Purpose:  Experimenting with Rich Internet Applications
+          Using the Adobe Flex Framework
 
 Project Makefile assumes the Flex compilers are in your path (mxmlc etc).  If
 Flex compilers are not in your path, update $(EUCHRIA_ROOT)/Makefile to reflect
