@@ -5,15 +5,19 @@
     <mx:Script>
         <![CDATA[
 
-            import flash.events.Event;
+        import flash.events.Event;
 
-            // Event handler function to print a message
-            // describing the selected Button control.
-            private function printMessage(event:Event):void  {
-              message.text += event.target.label + " gettin its dick wet\n";
-            }
+        private function printAceClubs(event:Event):void  {
+            message.text = "Ace of Clubs\n"
+        }
+        private function printAceSpades(event:Event):void  {
+            message.text = "Ace of Spades\n"
+        }
+        private function printAceHearts(event:Event):void  {
+            message.text = "Ace of Hearts\n"
+        }
 
-      ]]>
+        ]]>
     </mx:Script>
 
     <mx:Panel title="EUCHRIA!"
@@ -21,26 +25,22 @@
         paddingTop="20" paddingBottom="20" paddingLeft="20" paddingRight="20">
 
         <mx:VBox>
-            <mx:Label width="100%" color="green"
-                text="Select a Button control."/>
+            <mx:Label width="100%" color="blue"
+                text="Pick A Card, Any Card!">
 
-             <!-- The button can contain an image, as in the "Button with Icon" button -->
-             <!-- The button can contain an image, as in the "Button with Icon" button -->
-			 <mx:Button id="iconButton" icon="@Embed('assets/mm-icon.png')" label="Button with Icon"
-			     paddingLeft="12" paddingRight="18" labelPlacement="right" color="#993300" click="printMessage(event);"/>
+            </mx:Label>
 
-             <!-- The size of the button and the label attributes can be customized -->
-             <mx:Button label="Customized Button" color="#993300" toggle="true" selected="true"
-                 textAlign="left" fontStyle="italic" fontSize="13" width="{iconButton.width}"
-                 click="printMessage(event);"/>
+            <mx:Button id="AC" icon="@Embed('../graphics/cards/1.png')" 
+                color="#993300" click="printAceClubs(event);"/>
+            <mx:Button id="AS" icon="@Embed('../graphics/cards/2.png')" 
+                color="#993300" click="printAceSpades(event);"/>
+            <mx:Button id="AH" icon="@Embed('../graphics/cards/3.png')" 
+                color="#993300" click="printAceHearts(event);"/>
 
-             <!-- By default, the look and feel of the customized button is
-                 similar to the Default Button.  -->
-             <mx:Button label="Default Button" click="printMessage(event);"/>
         </mx:VBox>
 
-         <mx:TextArea id="message" text="" editable="false" height="100%" width="100%"
-             color="#0000FF"/>
+        <mx:TextArea id="message" text="" editable="false" height="100%"
+            width="100%" color="#0000FF"/>
 
     </mx:Panel>
 </mx:Application>
