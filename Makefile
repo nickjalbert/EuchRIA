@@ -1,5 +1,7 @@
 # Builds Euchria
 
+EUCHRIA_ROOT ?= $(shell pwd)
+
 SOURCES := $(wildcard $(EUCHRIA_ROOT)/src/*.mxml)
 TARGETS := $(SOURCES:.mxml=.swf)
 TARGETS := $(subst src,bin, $(TARGETS))
