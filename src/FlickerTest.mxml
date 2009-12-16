@@ -8,11 +8,30 @@
 
     <mx:Script>
         <![CDATA[
+        import mx.collections.ArrayCollection;
+        import mx.rpc.events.ResultEvent;
+
+        [Bindable]
+        private var photoFeed:ArrayCollection;
+        
         private function requestPhotos():void {
-            searchLabel.text="Photos Requested";
-            } 
+            photoService.cancel();
+            var params:Object = new Object();
+            params.format = 'rss_200_enc';
+            params.tags = searchTerms.text;
+            photoService.send(params);
+        }
+
+        private function photoHandler(event:ResultEvent): void {
+            photoFeed = event.result.rss.channel.item as ArrayCollection;
+        } 
         ]]>
     </mx:Script>
+
+    <mx:HTTPService id="photoService"
+            url="http://api.flickr.com/services/feeds/photos_public.gne"
+            result="photoHandler(event)" />
+
 
     <mx:HBox>
         <mx:Label id="searchLabel" text="Flickr search term:" />
@@ -20,5 +39,11 @@
         <mx:Button label="Search"
             click="requestPhotos()" />
     </mx:HBox>
+
+    <mx:TileList width="100%" height="100%"
+        dataProvider="{photoFeed}"
+        itemRenderer="FlickrThumbnail" >
+
+    </mx:TileList>
 
 </mx:Application>
